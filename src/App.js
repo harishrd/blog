@@ -13,13 +13,16 @@ const App = () => {
         <BrowserRouter>
             <div className="App">
                 <NavBar />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/articles" element={<ArticleListPage />} />
-                    <Route path="/articles/:articleId" element={<ArticlePage />} />
-                    <Route path="*" element={<NotFoundPage />} />
-                </Routes>
+                <div id="page-body">
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/articles" element={<ArticleListPage />} />
+                        <Route path="/articles/:articleId" element={<ArticlePage />} params={articleId => ({ articleId })} />
+                        <Route path="/articles" element={<ArticlePage />} />
+                        <Route path="*" element={<NotFoundPage />} />
+                    </Routes>
+                </div>
             </div>
         </BrowserRouter>
     );

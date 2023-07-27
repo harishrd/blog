@@ -1,12 +1,16 @@
+import { Link } from "react-router-dom";
 import articles from "./article-content";
-import ArticleList from "../components/ArticleList";
 
 
 const ArticleListPage = () => { 
     return (
         <>
-            <h3>Articles</h3>
-            <ArticleList articles={articles}/>
+            {articles.map((article, key) => (
+                <Link key={article.name} to={`/articles/${article.name}`}>
+                    <h3>{article.title}</h3>
+                    <p>{article.content[0].substring(0, 150)}...</p>
+                </Link>
+            ))}
         </>
     );
 };
