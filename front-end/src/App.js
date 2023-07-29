@@ -10,6 +10,7 @@ import NavBar from './NavBar';
 
 const App = () => {
     return (
+        //params={articleId => ({ articleId })} />
         <BrowserRouter>
             <div className="App">
                 <NavBar />
@@ -18,7 +19,8 @@ const App = () => {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/articles" element={<ArticleListPage />} />
-                        <Route path="/articles/:articleId" element={<ArticlePage />} params={articleId => ({ articleId })} />
+                        {/* <Route path="/articles/:articleId" element={<ArticlePage />} params={articleId => ({ articleId })} /> */}
+                        <Route path="/articles/:articleId" element={<ArticlePage />} />
                         <Route path="/articles" element={<ArticlePage />} />
                         <Route path="*" element={<NotFoundPage />} />
                     </Routes>
